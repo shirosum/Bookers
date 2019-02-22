@@ -1,0 +1,24 @@
+<%= render 'users/userinfo', user:@user, book:@bookn %>
+
+			<div class="col-xs-9">
+				<h2 class="">Books</h2>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Title</th>
+							<th>Opinion</th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
+				    <% @books.each do |book| %>
+					<tbody class="">
+						<tr class="">
+							<td class=""><%= link_to attachment_image_tag @user, :image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg", class: "user_#{@user.id}" %></td>
+							<td class=""><%= link_to book.title, book_path(book.id), class: "book_#{book.id}" %></td>
+							<td class=""><%= book.body %></td>
+						</tr>
+					</tbody>
+				    <% end %>
+				</table>
+			</div>
